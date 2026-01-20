@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membuat form pendaftaran dengan tabel dan fieldset</title>
+</head>
+<body>
+    <h2>Form Pendaftaran</h2>
+    <form action="/submit" method="post">
+        <fieldset>
+            <legend>Informasi Pribadi</legend>
+            <table>
+                Nama Lengkap:
+                <input type="text" name="nama_lengkap" required/><br/>
+                
+                <td>Alamat Email:</td>
+                <input type="email" name="email" required/><br/>
+                
+                <td>Nomor Telepon:</td>
+                <input type="tel" name="telepon" required/><br/>
+            </table>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Informasi Akun</legend>
+            <table>
+                Username:
+                <input type="text" name="username" required/><br/>
+                
+                <td>Password:</td>
+                <input type="password" name="password" required/><br/>
+            </table>
+        </fieldset>
+        <br>
+        <input type="submit" value="Daftar">
+    </form>
+</body>
+</html>
