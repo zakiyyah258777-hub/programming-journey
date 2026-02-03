@@ -1,0 +1,17 @@
+/* Styles for the external CSS file */
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #F87C63;
+    margin: 0;
+    padding: 1;
+}
+h1 {
+    color: #FCC6BB;
+    text-align: right;
+    margin-top: 25px;
+}
+p {
+    color: #9C2007;
+    line-height: 1,5;
+    padding: 0 25px;
+}

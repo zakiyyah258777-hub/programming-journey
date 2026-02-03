@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas CSS Selector-Eksternal</title>
+<!-- Menghubungkan file CSS eksternal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Demonstrasi Berbagai Selector CSS</h1>
+        <p class="subtitle">Implementasi selector: Tag, Class, ID, dan Universal</p>
+    </header>
+
+    <main>
+        <!-- Contoh Selector Tag -->
+        <section class="section">
+            <h2>1. Selector Tag</h2>
+            <p>Paragraf ini menggunakan selector tag <code>p</code> untuk mengatur warna teks.</p>
+            <p>Paragraf kedua juga terpengaruh oleh selector tag yang sama.</p>
+            <h3>Ini adalah heading level 3 (selector tag h3)</h3>
+        </section>
+
+        <!-- Contoh Selector Class -->
+        <section class="section">
+            <h2>2. Selector Class</h2>
+            <p class="highlight">Paragraf ini menggunakan class <code>highlight</code> untuk background kuning.</p>
+            <div class="highlight box">Div ini juga menggunakan class <code>highlight</code>.</div>
+            <span class="highlight">Span ini juga menggunakan class yang sama.</span>
+            <p class="warning">Paragraf ini menggunakan class <code>warning</code> untuk tampilan peringatan.</p>
+        </section>
+
+        <!-- Contoh Selector ID -->
+        <section class="section">
+            <h2>3. Selector ID</h2>
+            <div id="main-content">
+                <p>Div ini memiliki ID <code>main-content</code> dengan border merah.</p>
+                <p>Selector ID bersifat unik (hanya boleh digunakan sekali dalam satu halaman).</p>
+            </div>
+            <button id="primary-button">Tombol dengan ID</button>
+        </section>
+
+        <!-- Contoh Selector Universal -->
+        <section class="section">
+            <h2>4. Efek Selector Universal</h2>
+            <p>Selector universal (*) mengatur margin dan padding default untuk semua elemen.</p>
+            <div class="container">
+                <p>Perhatikan bahwa semua elemen di halaman ini memiliki font-family 'Arial' yang berasal dari selector universal.</p>
+                <ul>
+                    <li>Item list 1</li>
+                    <li>Item list 2</li>
+                    <li>Item list 3</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contoh Selector Lainnya -->
+        <section class="section">
+            <h2>Bonus: Selector Atribut</h2>
+            <p>Contoh selector atribut untuk input:</p>
+            <input type="text" placeholder="Input teks (border hijau)">
+            <input type="email" placeholder="Input email">
+            <input type="submit" value="Submit">
+            
+            <p class="info">Link dengan selector atribut:</p>
+            <a href="#home">Link ke Home</a> |
+            <a href="#about">Link ke About</a> |
+            <span>Ini bukan link (tanpa href)</span>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-text">© 2026 Tugas CSS Selector - Eksternal  
+            by: Zakiyyah X PPLG 2
+        </p>
+    </footer>
+</body>
+</html>
