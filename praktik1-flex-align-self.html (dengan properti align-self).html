@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Box align-self - Eksperimen (modifikasi praktik)</title>
+        <style>
+    .container{
+        width: 600px;
+        height: 150px;
+        border: 5px solid #6a6ad3;
+        margin: 30px;
+        padding: 5px;
+        display: flex;
+        box-sizing: border-box;
+        align-items: flex-start;  /* align-items untuk semua item (default) */
+    }
+    .container div{
+        background-color: #6a6ad3;
+        margin: 2px;
+        flex: 1;                  /* semua item punya lebar sama */
+    }
+    /* Eksperimen align-self pada masing-masing item */
+    .satu { align-self: auto; }        /* mengikuti align-items (flex-start) */
+    .dua  { align-self: center; }      /* berada di tengah vertikal container */
+    .tiga { align-self: flex-end; }    /* ditempelkan ke bawah */
+    .empat{ align-self: stretch; }     /* memenuhi tinggi container (karena height tidak ditetapkan) */
+        /* .lima { align-self: baseline; } 
+         -- baseline membutuhkan teks dengan ukuran font berbeda */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="satu">1 (auto)</div>
+        <div class="dua">2 (center)</div>
+        <div class="tiga">3 (flex-end)</div>
+        <div class="empat">4 (stretch)</div>
+    </div>
+    <p><strong>Keterangan:</strong><br>
+    - <code>align-self: auto</code> → mengikuti <code>align-items: flex-start</code> (rata atas).<br>
+    - <code>center</code> → posisi tengah vertikal.<br>
+    - <code>flex-end</code> → posisi bawah.<br>
+    - <code>stretch</code> → memenuhi tinggi container (karena tidak ada <code>height</code> tetap pada item).<br>
+    - <code>baseline</code> → sejajar berdasarkan garis teks (coba ganti salah satu dengan <code>baseline</code> dan tambahkan padding/font berbeda).
+    </p>
+</body>
+</html>
