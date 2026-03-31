@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Overflow</title>
+        <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #53cbe9;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        /* Navigasi */
+        .nav {
+            text-align: center;
+            margin-bottom: 50px;
+            background-color: #e0e0e0;
+            padding: 16px 0;
+        }
+        .nav a {
+            display: inline-block;
+            padding: 10px 26px;
+            margin: 6 5px;
+            background-color: #9e650f;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .nav a:hover {
+            background-color: #24221e;
+        }
+        /* Container artikel untuk memberi jarak */
+        .artikel-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            justify-content: center;
+        }
+        /* Gaya dasar artikel */
+        .artikel {
+            width: 300px;
+            border: 2px solid #333;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 6 4px 8px rgba(0,0,0,0.1);
+        }
+        .artikel h3 {
+            text-align: center;
+            margin-top: 0;
+            background-color: #ddd;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        .artikel img {
+            display: block;
+            margin: 6 auto 10px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        /* Konten artikel dengan overflow */
+        .konten {
+            width: 100%;
+            height: 160px;   /* Tinggi tetap agar overflow terjadi */
+            background-color: #f0f0f0;
+            padding: 8px;
+            border: 1px dashed #140d0d;
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        /* Masing-masing overflow */
+        .visible { overflow: visible; }
+        .hidden { overflow: hidden; }
+        .scroll { overflow: scroll; }
+        .auto { overflow: auto; }
+    </style>
+</head>
+<body>
+
+<h1>🏷️ Toko Produk Kreatif Nusantara</h1>
+
+<div class="nav">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Product</a>
+    <a href="#">Contact</a>
+</div>
+
+<div class="artikel-container">
+
+    <!-- Artikel 1: overflow visible -->
+    <div class="artikel">
+        <h3>Produk 1: Batik Modern</h3>
+        <img src="https://www.pinterest.com/pin/70437478158896/=Batik" alt="Batik">
+        <div class="konten visible">
+            <strong>[overflow: visible]</strong><br>
+            Batik Modern adalah perpaduan motif tradisional dengan sentuhan kontemporer. 
+            Terbuat dari bahan katun premium yang adem dan nyaman dipakai. 
+            Cocok untuk acara formal maupun santai. Tersedia berbagai ukuran dan warna. 
+        </div>
+    </div>
+
+    <!-- Artikel 2: overflow hidden -->
+    <div class="artikel">
+        <h3>Produk 2: Kopi Gayo Premium</h3>
+        <img src="https://www.kompas.com/food/read/2023/07/11/140800375/3-cara-minum-kopi-yang-benar-tips-dari-barista=Kopi" alt="Kopi">
+        <div class="konten hidden">
+            <strong>[overflow: hidden]</strong><br>
+            Kopi Gayo Premium berasal dari dataran tinggi Aceh yang ditanam secara organik. 
+            Biji kopi dipetik langsung oleh petani berpengalaman dan melalui proses 
+            roasting medium untuk menghasilkan cita rasa khas dengan sentuhan aroma rempah. 
+            Kopi ini memiliki tingkat keasaman rendah, cocok untuk penikmat kopi yang sensitif 
+            lambung. Tersedia dalam bentuk biji utuh atau bubuk sesuai kebutuhan Anda. 
+            Dikemas dengan vakum agar kesegaran tetap terjaga. Dalam setiap seduhan, 
+            Anda akan merasakan kombinasi rasa cokelat, karamel, dan sedikit fruity. 
+            Cocok diminum di pagi atau sore hari. Kopi Gayo sudah mendapatkan sertifikasi Fair 
+            Trade, sehingga Anda ikut mendukung kesejahteraan petani lokal. 
+            Tersedia juga varian decaf bagi yang ingin menikmati kopi tanpa kafein. 
+            Beli sekarang dan rasakan kehangatan kopi asli Gayo.
+        </div>
+    </div>
+
+    <!-- Artikel 3: overflow scroll -->
+    <div class="artikel">
+        <h3>Produk 3: Sepatu Sneakers Urban</h3>
+        <img src="https://www.happystore.id/products/pollux-wts-2236-sepatu-sneakers-wanita-sneakers-wedges-wanita?srsltid=AfmBOorY1Fq42GIN15AymS7MePxDRH1ZHQFRd0Itk5dghk1yJAOZTn9k=Sneakers" alt="Sepatu">
+        <div class="konten scroll">
+            <strong>[overflow: scroll]</strong><br>
+            Sneakers Urban dirancang untuk gaya hidup aktif dengan desain kekinian. 
+            Material upper menggunakan kanvas dan sintetis berkualitas tinggi sehingga ringan dan kuat. 
+            Sol sepatu terbuat dari karet non-slip yang memberikan kenyamanan saat berjalan jauh. 
+            Tersedia berbagai warna: hitam, putih, navy, dan merah marun. Ukuran dari 36 hingga 44. 
+            Dilengkapi insole empuk yang dapat dilepas dan dicuci. Cocok dipakai untuk kuliah, kerja, 
+            hangout, atau olahraga ringan. Sneakers ini juga memiliki ventilasi yang baik sehingga 
+            kaki tidak mudah lembab. Dengan harga terjangkau, Anda mendapatkan produk yang setara 
+            dengan merek internasional. Setiap pembelian dilengkapi dengan tas penyimpanan eksklusif. 
+            Tersedia juga limited edition dengan motif kolaborasi seniman lokal. 
+            Dapatkan diskon spesial untuk pembelian via aplikasi. 
+        </div>
+    </div>
+
+    <!-- Artikel 4: overflow auto -->
+    <div class="artikel">
+        <h3>Produk 4: Tote Bag Kanvas</h3>
+        <img src="https://www.instagram.com/p/DNU-FhsyXOl/=Tote+Bag" alt="Tote Bag">
+        <div class="konten auto">
+            <strong>[overflow: auto]</strong><br>
+            Tote Bag Kanvas terbuat dari bahan katun tebal yang kuat dan ramah lingkungan. 
+            Ukuran 40x35 cm, cukup untuk membawa laptop, buku, dan belanjaan. 
+            Desain simpel dengan berbagai pilihan warna dan motif. Tali panjang yang nyaman 
+            disandang di bahu. Cocok untuk aktivitas sehari-hari, belanja, atau ke kampus. 
+            Tote bag ini dapat dilipat sehingga mudah disimpan saat tidak dipakai. 
+            Tersedia juga varian dengan tambahan saku depan. Produk handmade dari pengrajin 
+            lokal dengan kualitas jahitan rapi. Dapat dicuci tanpa khawatir luntur. 
+            Dengan membeli tote bag ini, Anda turut mengurangi penggunaan plastik sekali pakai. 
+            Tersedia juga layanan sablon untuk kebutuhan promosi atau kado. 
+            Harga mulai dari Rp 50.000. Gratis ongkir untuk wilayah Jabodetabek. 
+            Pesan sekarang dan dapatkan bonus gantungan kunci eksklusif.
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
