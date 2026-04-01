@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+    div.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    }
+    div.gallery-item {
+    margin: 5px;
+    border: 1px solid #ccc;
+    width: 180px;
+    }
+    div.gallery-item:hover {
+    border: 1px solid #777;
+    }
+    div.gallery-item img {
+    width: 100%;
+    height: auto;
+    }
+    div.gallery-item div.desc {
+    padding: 15px;
+    text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <h2>Image Gallery</h2>
+
+    <div class="gallery">
+
+        <div class="gallery-item">
+            <a target="_blank" href="c:\Users\Windows\Pictures\Cinque terre.jpg">
+                <img src="c:\Users\Windows\Pictures\Cinque terre.jpg" alt="Cinque Terre" width="600" height="400">
+            </a>
+            <div class="desc">Cinque Terre</div>
+        </div>
+
+        <div class="gallery-item">
+            <a target="_blank" href="c:\Users\Windows\Pictures\green-forest.jpeg">
+                <img src="c:\Users\Windows\Pictures\green-forest.jpeg" alt="Forest" width="600" height="400">
+            </a>
+            <div class="desc">Green Forest</div>
+        </div>
+
+        <div class="gallery-item">
+            <a target="_blank" href="c:\Users\Windows\Pictures\Northern Light.jpg">
+                <img src="c:\Users\Windows\Pictures\Northern Light.jpg" alt="Northern Lights" width="600" height="400">
+            </a>
+            <div class="desc">Northern Lights</div>
+        </div>
+
+        <div class="gallery-item">
+            <a target="_blank" href="c:\Users\Windows\Pictures\Mountains.jpg">
+                <img src="c:\Users\Windows\Pictures\Mountains.jpg" alt="Mountains" width="600" height="400">
+            </a>
+            <div class="desc">Mountains</div>
+        </div>
+
+    </div>
+</body>
+</html>
