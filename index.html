@@ -3,18 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Horizontal</title>
-        <link rel="stylesheet" href="f:\CSS\praktek 9\Tugas 9\style.css">
+     <title>SnackVerse · Camilan Kekinian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Background animated blob -->
+    <div class="blob bg-blob-1"></div>
+    <div class="blob bg-blob-2"></div>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-cookie-bite"></i>
+            <h1>SnackVerse</h1>
+        </div>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count">0</span>
+        </div>
+    </header>
+
     <nav>
         <ul>
-            <li><a href="#">Beranda</a></li>
-            <li><a href="#">Tentang</a></li>
-            <li><a href="#">Layanan</a></li>
-            <li><a href="#">Portofolio</a></li>
-            <li><a href="#">Kontak</a></li>
+            <li><a href="#"><i class="fas fa-home"></i> Beranda</a></li>
+            <li><a href="#"><i class="fas fa-candy-cane"></i> Semua Camilan</a></li>
+            <li><a href="#"><i class="fas fa-fire"></i> Promo Spesial</a></li>
+            <li><a href="#"><i class="fas fa-headset"></i> Kontak</a></li>
         </ul>
     </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="chip">✨ HAPPY HOUR ✨</span>
+            <h2>Diskon <span class="highlight">20%</span> untuk pertama belanja</h2>
+            <p>Gratis ongkir + snack bonus untuk pembelian di atas 50k</p>
+            <div class="countdown">
+                <div class="time-box"><span id="days">00</span><span>Hari</span></div>
+                <div class="time-box"><span id="hours">00</span><span>Jam</span></div>
+                <div class="time-box"><span id="minutes">00</span><span>Menit</span></div>
+                <div class="time-box"><span id="seconds">00</span><span>Detik</span></div>
+            </div>
+            <button class="hero-btn glow"><i class="fas fa-bolt"></i> Pesan Sekarang</button>
+        </div>
+        <div class="hero-image">
+            <i class="fas fa-candy-cane"></i>
+            <i class="fas fa-ice-cream"></i>
+            <i class="fas fa-cookie"></i>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="section-header">
+            <h2 class="section-title">✨ Camilan Pilihan ✨</h2>
+            <p>Rekomendasi best seller minggu ini</p>
+        </div>
+        <div class="snack-grid">
+            <div class="snack-card glass">
+                <div class="badge hot"><i class="fas fa-fire"></i> Best Seller</div>
+                <img src="c:\Users\Windows\Pictures\keripik.jpg" alt="Keripik">
+                <h3>Keripik Singkong</h3>
+                <p>Gurih, kriuk tahan lama! 
+                    Tersedia berbagai rasa yang mantab banget!
+                </p>
+                <div class="price">Rp 18.000 <span class="old-price">Rp 22.000</span></div>
+                <button class="buy-btn"><i class="fas fa-plus"></i> Keranjang</button>
+            </div>
+            <div class="snack-card glass">
+                <img src="c:\Users\Windows\Pictures\Brownies.jpg" alt="Brownies">
+                <h3>Brownies Lumer</h3>
+                <p>Chocolaty, lembut, legit, mantab!
+                    Tersedia berbagai macam rasa!
+                </p>
+                <div class="price">Rp 25.000</div>
+                <button class="buy-btn"><i class="fas fa-plus"></i> Keranjang</button>
+            </div>
+            <div class="snack-card glass">
+                <div class="badge vegan"><i class="fas fa-seedling"></i> Vegetarian</div>
+                <img src="c:\Users\Windows\Pictures\makaroni.jpg" alt="Makaroni">
+                <h3>MAKARONI MAKNYUS</h3>
+                <p>Renyah, Gurih bumbu spesial
+                    Tersedia berbagai macam rasa!
+                </p>
+                <div class="price">Rp 12.000</div>
+                <button class="buy-btn"><i class="fas fa-plus"></i> Keranjang</button>
+            </div>
+            <div class="snack-card glass">
+                <img src="c:\Users\Windows\Pictures\donat.jpeg" alt="Donat">
+                <h3>DONAT NYAM-NYAM</h3>
+                <p>Empuk, manis pas!
+                   Tersedia berbagai macam rasa!
+                </p>
+                <div class="price">Rp 10.000</div>
+                <button class="buy-btn"><i class="fas fa-plus"></i> Keranjang</button>
+            </div>
+            <div class="snack-card glass">
+                <div class="badge new"><i class="fas fa-star"></i> New!</div>
+                <img src="c:\Users\Windows\Pictures\Pisang Coklat.webp" alt="Pisang Cokelat">
+                <h3>PISANG LUMERR</h3>
+                <p>Lumer, Legit, Mantab 
+                    Tersedia berbagai macam rasa!
+                </p>
+                <div class="price">Rp 15.000</div>
+                <button class="buy-btn"><i class="fas fa-plus"></i> Keranjang</button>
+            </div>
+            <div class="snack-card glass">
+                <img src="c:\Users\Windows\Pictures\kripik kentang.jpg" alt="Keripik Kentang">
+                <h3>KERIPIK KENTANG TRUFFLE</h3>
+                <p>Rasa truffle premium 
+                    crispy, enak, mantab!</p>
+                <div class="price">Rp 32.000</div>
+                <button class="buy-btn"><i class="fas fa-plus"></i> Keranjang</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <i class="fas fa-cookie-bite"></i> SnackVerse
+                <p>Rasa bahagia dalam setiap gigitan</p>
+            </div>
+            <div class="footer-col">
+                <h4>Kontak</h4>
+                <p><i class="fas fa-phone"></i> 0812-3456-7890</p>
+                <p><i class="fab fa-instagram"></i> @snackverse_id</p>
+            </div>
+            <div class="footer-col">
+                <h4>Jam Operasional</h4>
+                <p>Setiap hari 08.00 - 21.00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 SnackVerse · Selalu ada camilan untukmu
+        </div>
+    </footer>
+
+    <script>
+        // Countdown promo (3 hari ke depan)
+        function getNextPromoDate() {
+            let date = new Date();
+            date.setDate(date.getDate() + 3);
+            date.setHours(23, 59, 59, 999);
+            return date;
+        }
+
+        function updateCountdown() {
+            const target = getNextPromoDate();
+            const now = new Date();
+            const diff = target - now;
+
+            if (diff <= 0) {
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (86400000)) / (3600000));
+            const minutes = Math.floor((diff % 3600000) / 60000);
+            const seconds = Math.floor((diff % 60000) / 1000);
+
+            document.getElementById('days').innerText = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Keranjang interaktif
+        let cartCount = 0;
+        const cartSpan = document.querySelector('.cart-count');
+        const buyBtns = document.querySelectorAll('.buy-btn');
+        buyBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                cartCount++;
+                cartSpan.innerText = cartCount;
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => btn.style.transform = '', 150);
+            });
+        });
+    </script>
 </body>
 </html>
