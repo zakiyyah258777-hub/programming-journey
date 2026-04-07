@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Z-Index - Tiga Gambar Bertumpuk</title>
+     <style>
+        /* Container untuk memusatkan dan memberi posisi relatif */
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+        }
+
+        /* Style dasar semua gambar */
+        .container img {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border: 3px solid white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        /* Gambar 1 - PALING DEPAN (z-index tertinggi) */
+        .gambar1 {
+            top: 0;
+            left: 0;
+            z-index: 3;
+        }
+
+        /* Gambar 2 - TENGAH */
+        .gambar2 {
+            top: 40px;
+            left: 40px;
+            z-index: 2;
+        }
+
+        /* Gambar 3 - PALING BELAKANG (z-index terendah) */
+        .gambar3 {
+            top: 80px;
+            left: 80px;
+            z-index: 1;
+        }
+
+        /* Keterangan (opsional) */
+        .keterangan {
+            text-align: center;
+            margin-top: 220px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Ganti URL gambar sesuai keinginan. Contoh di bawah menggunakan gambar dari Picsum (gambar bebas) -->
+        <img class="gambar1" src="c:\Users\Windows\Downloads\WhatsApp Image 2026-03-20 at 10.34.15 (4).jpeg" alt="Gambar 1 (Depan)">
+        <img class="gambar2" src="c:\Users\Windows\Downloads\WhatsApp Image 2026-03-20 at 10.34.15.jpeg" alt="Gambar 2 (Tengah)">
+        <img class="gambar3" src="c:\Users\Windows\Downloads\WhatsApp Image 2026-03-20 at 10.44.00.jpeg" alt="Gambar 3 (Belakang)">
+    </div>
+    <div class="keterangan">
+        <p><strong>Urutan tumpukan (dari depan ke belakang):</strong> Gambar 1 (z-index:3) → Gambar 2 (z-index:2) → Gambar 3 (z-index:1)</p>
+        <p>Gambar bebas dari <em>picsum.photos</em>. Silakan ganti URL gambar sesuai keinginan.</p>
+    </div>
+</body>
+</html>
