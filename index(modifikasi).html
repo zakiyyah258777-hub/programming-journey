@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NeoKomputer | Galeri Tech Masa Depan</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header dengan logo animasi -->
+    <header class="hero">
+        <div class="logo-container">
+            <i class="fas fa-microchip fa-3x"></i>
+            <h1>Neo<span>Komputer</span></h1>
+        </div>
+        <p class="tagline">Inovasi Tanpa Batas | Galeri Teknologi Masa Depan</p>
+    </header>
+
+    <!-- Navigasi modern -->
+    <nav role="navigation">
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li>
+                <a href="#"><i class="fas fa-info-circle"></i> About</a>
+                <ul class="dropdown">
+                    <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
+                    <li><a href="#gallery" class="gallery-link"><i class="fas fa-images"></i> Products</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+                <ul class="dropdown">
+                    <li><a href="#"><i class="fas fa-phone-alt"></i> Phone</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> Email</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Section Galeri Produk -->
+    <section id="gallery" class="gallery-section">
+        <h2><i class="fas fa-camera-retro"></i> Galeri Produk Unggulan</h2>
+        <div class="gallery-container">
+            <div class="gallery-card" data-img="c:\Users\Windows\Pictures\pc game.jpg">
+                <img src="c:\Users\Windows\Pictures\pc game.jpg" alt="PC Gaming">
+                <div class="card-info">
+                    <h3>PC Gaming Xtreme</h3>
+                    <p>RGB liquid cooling, RTX 5090</p>
+                </div>
+            </div>
+            <div class="gallery-card" data-img="c:\Users\Windows\Pictures\laptop ultra.webp">
+                <img src="c:\Users\Windows\Pictures\laptop ultra.webp" alt="Laptop Ultra">
+                <div class="card-info">
+                    <h3>Laptop Ultrabook</h3>
+                    <p>Intel Core Ultra 9, 32GB RAM</p>
+                </div>
+            </div>
+            <div class="gallery-card" data-img="c:\Users\Windows\Pictures\workstation pro.webp">
+                <img src="c:\Users\Windows\Pictures\workstation pro.webp" alt="Workstation">
+                <div class="card-info">
+                    <h3>Workstation Pro</h3>
+                    <p>Dual Xeon, Quadro RTX</p>
+                </div>
+            </div>
+            <div class="gallery-card" data-img="c:\Users\Windows\Pictures\all in one studio.jpg">
+                <img src="c:\Users\Windows\Pictures\all in one studio.jpg" alt="All-in-One">
+                <div class="card-info">
+                    <h3>All-in-One Studio</h3>
+                    <p>4K OLED, touchscreen</p>
+                </div>
+            </div>
+            <div class="gallery-card" data-img="c:\Users\Windows\Pictures\mini pc.webp">
+                <img src="c:\Users\Windows\Pictures\mini pc.webp" alt="Mini PC">
+                <div class="card-info">
+                    <h3>Mini PC </h3>
+                    <p>Ukuran saku, performa desktop</p>
+                </div>
+            </div>
+            <div class="gallery-card" data-img="c:\Users\Windows\Pictures\gear geminng.jpg">
+                <img src="c:\Users\Windows\Pictures\gear geminng.jpg" alt="Aksesoris">
+                <div class="card-info">
+                    <h3>Gear Gaming</h3>
+                    <p>Keyboard mechanical, mouse 8K Hz</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        // Lightbox functionality
+        const cards = document.querySelectorAll('.gallery-card');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const caption = document.getElementById('caption');
+        const closeBtn = document.querySelector('.close');
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const imgSrc = card.getAttribute('data-img');
+                const imgAlt = card.querySelector('img').alt;
+                const title = card.querySelector('.card-info h3').innerText;
+                lightbox.style.display = 'flex';
+                lightboxImg.src = imgSrc;
+                caption.innerHTML = `<strong>${title}</strong> - ${imgAlt}`;
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) lightbox.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
