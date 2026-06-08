@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WisataKu - Tiket Liburan</title>
+    <style>
+        /* RESET CSS – menghapus margin/padding default */
+        * {
+            margin: 0;          /* hilangkan margin bawaan browser */
+            padding: 0;         /* hilangkan padding bawaan browser */
+            box-sizing: border-box; /* agar lebar termasuk padding/border */
+        }
+
+        /* STYLE BODY – latar belakang gradien & padding */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* jenis font */
+            background: linear-gradient(145deg, #b5e4f0 0%, #d4f1f9 100%); /* gradien biru muda */
+            padding: 25px;      /* jarak dari tepi layar */
+        }
+
+        /* KONTEN UTAMA – kotak putih dengan bayangan */
+        .container {
+            max-width: 1300px;          /* lebar maksimal */
+            margin: 0 auto;             /* tengah horizontal */
+            background: rgba(255, 255, 255, 0.95); /* putih transparan */
+            border-radius: 40px;        /* sudut melengkung besar */
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2); /* bayangan tebal */
+            padding: 25px 30px 35px;    /* ruang dalam: atas 25, kanan/kiri 30, bawah 35 */
+        }
+
+        /* JUDUL HALAMAN */
+        h1 {
+            font-size: 2rem;            /* ukuran font 2x ukuran default */
+            color: #0b4f6c;             /* warna biru tua */
+            border-bottom: 3px solid #ffb703; /* garis bawah oranye */
+            padding-bottom: 12px;       /* jarak bawah teks ke garis */
+            margin-bottom: 25px;        /* jarak bawah ke elemen berikutnya */
+        }
+
+        /* ========== TENTANG KAMI – TAMBAHAN ========== */
+        /* kotak tentang kami dengan gradien lembut */
+        .about-us {
+            background: linear-gradient(135deg, #e6f7f0 0%, #fff7e6 100%); /* gradien hijau-kuning */
+            border-radius: 28px;        /* sudut melengkung */
+            padding: 25px 30px;         /* ruang dalam */
+            margin-bottom: 35px;        /* jarak bawah ke grid destinasi */
+            border: 1px solid #ffe0a3;  /* garis tepi kuning lembut */
+            transition: 0.2s;           /* animasi halus */
+        }
+        /* efek hover pada kotak tentang kami (pseudo-class) */
+        .about-us:hover {
+            transform: translateY(-3px); /* naik sedikit */
+            box-shadow: 0 12px 20px rgba(0,0,0,0.08); /* bayangan */
+            border-color: #ffb703;       /* garis tepi jadi oranye */
+        }
+        .about-us h2 {
+            color: #0b4f6c;             /* biru tua */
+            font-size: 1.6rem;          /* ukuran sedang */
+            margin-bottom: 15px;        /* jarak ke paragraf */
+            display: flex;              /* fleksibel untuk ikon */
+            align-items: center;        /* vertikal tengah */
+            gap: 10px;                 /* jarak ikon ke teks */
+        }
+        .about-us p {
+            color: #2c3e3f;             /* hijau keabuan */
+            line-height: 1.6;           /* jarak antar baris */
+            margin-bottom: 12px;        /* jarak bawah paragraf */
+        }
+        /* keunggulan – menggunakan flex wrap */
+        .about-us .keunggulan {
+            display: flex;              /* susunan fleksibel */
+            flex-wrap: wrap;           /* jika layar kecil, baris baru */
+            gap: 20px;                /* jarak antar item */
+            margin-top: 15px;          /* jarak atas dari teks */
+        }
+        .about-us .keunggulan span {
+            background: white;          /* latar putih */
+            padding: 6px 18px;         /* ruang dalam */
+            border-radius: 40px;        /* bentuk oval */
+            font-size: 0.85rem;         /* ukuran kecil */
+            font-weight: bold;          /* tebal */
+            color: #0b4f6c;             /* biru tua */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* bayangan tipis */
+        }
+        /* ========================================== */
+
+        /* JUDUL DAFTAR DESTINASI – TAMBAHAN */
+        .section-title {
+            font-size: 1.8rem;          /* ukuran font sedang */
+            color: #0b4f6c;             /* warna biru tua */
+            margin: 10px 0 20px 0;      /* jarak: atas 10, kanan 0, bawah 20, kiri 0 */
+            padding-left: 10px;         /* sedikit ruang kiri */
+            border-left: 5px solid #ffb703; /* garis samping oranye */
+        }
+        /* ========================================== */
+
+        /* GRID DESTINASI – susunan kartu secara responsif */
+        .destinasi-grid {
+            display: grid;                              /* menggunakan grid layout */
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* minimal 260px, otomatis jumlah kolom */
+            gap: 25px;                                  /* jarak antar kartu */
+            margin-bottom: 40px;                        /* jarak bawah ke form */
+        }
+
+        /* KARTU DESTINASI */
+        .card {
+            background: white;              /* latar putih */
+            border-radius: 28px;            /* sudut melengkung */
+            overflow: hidden;               /* potong konten yang keluar */
+            transition: all 0.25s ease;     /* animasi halus saat hover */
+            border: 1px solid #e2e8f0;      /* garis tepi tipis abu */
+        }
+
+        /* efek hover pada kartu (pseudo-class) */
+        .card:hover {
+            transform: translateY(-8px);                 /* naik sedikit */
+            box-shadow: 0 20px 28px -10px rgba(0, 0, 0, 0.2); /* bayangan */
+            border-color: #ffb703;                       /* garis tepi jadi oranye */
+        }
+
+        /* variasi warna ikon berdasarkan urutan kartu (pseudo-class :nth-child) */
+        .card:nth-child(odd) .icon {
+            background: #fff0cf;    /* warna krem untuk kartu ganjil */
+        }
+        .card:nth-child(even) .icon {
+            background: #d4f1f9;    /* warna biru muda untuk kartu genap */
+        }
+
+        /* IKON DESTINASI (emoji besar) */
+        .icon {
+            font-size: 3.2rem;          /* ukuran emoji */
+            text-align: center;         /* tengah horizontal */
+            padding: 25px 0;            /* ruang atas/bawah 25px, kiri/kanan 0 */
+            background: #fef3e2;        /* warna dasar ikon (jika tidak kena nth-child) */
+        }
+
+        /* INFORMASI DESTINASI (teks) */
+        .info {
+            padding: 18px;              /* ruang dalam di sekitar teks */
+        }
+        .info h3 {
+            font-size: 1.3rem;          /* ukuran judul destinasi */
+            margin-bottom: 5px;         /* jarak ke lokasi */
+        }
+        .lokasi {
+            color: #ff6b35;             /* warna oranye */
+            font-size: 0.85rem;         /* ukuran lebih kecil */
+            margin-bottom: 8px;         /* jarak ke harga */
+        }
+        .harga {
+            font-weight: bold;          /* tebal */
+            font-size: 1.3rem;          /* ukuran sedang */
+            color: #0b4f6c;             /* warna biru tua */
+            margin: 10px 0;             /* jarak atas/bawah */
+        }
+
+        /* TOMBOL (digunakan untuk submit form) */
+        .btn-submit {
+            background: #0b4f6c;        /* warna biru tua */
+            color: white;               /* teks putih */
+            border: none;               /* tanpa border */
+            padding: 12px 35px;         /* ruang dalam */
+            border-radius: 60px;        /* bentuk oval */
+            font-weight: bold;          /* tebal */
+            font-size: 1rem;            /* ukuran normal */
+            cursor: pointer;            /* kursor jadi tangan */
+            transition: 0.2s;           /* animasi halus */
+        }
+        /* efek hover pada tombol (pseudo-class) */
+        .btn-submit:hover {
+            background: #ffb703;        /* warna oranye saat dihover */
+            color: #0b4f6c;             /* teks jadi biru tua */
+        }
+
+        /* FORM PEMESANAN – kotak putih */
+        .form-pesan {
+            background: #f8fafc;            /* abu sangat muda */
+            border-radius: 32px;            /* sudut melengkung */
+            padding: 25px;                  /* ruang dalam */
+            margin-top: 20px;               /* jarak atas dari grid */
+            border: 1px solid #e2e8f0;      /* garis tepi tipis */
+        }
+        .form-pesan h2 {
+            margin-bottom: 20px;            /* jarak bawah judul form */
+            color: #0b4f6c;                 /* warna biru tua */
+        }
+
+        /* BARIS FORM (grid input) */
+        .row-form {
+            display: flex;          /* susunan fleksibel */
+            flex-wrap: wrap;       /* jika layar kecil, baris baru */
+            gap: 15px;             /* jarak antar elemen */
+            margin-bottom: 18px;   /* jarak bawah antar baris */
+        }
+
+        /* INPUT, SELECT, TEXTAREA – gaya seragam */
+        .row-form input, 
+        .row-form select, 
+        .row-form textarea {
+            flex: 1;                        /* lebar mengisi ruang */
+            padding: 12px 18px;             /* ruang dalam */
+            border-radius: 60px;            /* bentuk oval */
+            border: 1px solid #cbd5e1;      /* garis abu */
+            font-family: inherit;           /* ikuti font body */
+            transition: 0.2s;               /* animasi halus */
+        }
+
+        /* efek focus pada input (pseudo-class) */
+        .row-form input:focus, 
+        .row-form select:focus, 
+        .row-form textarea:focus {
+            outline: none;                      /* hilangkan outline bawaan */
+            border-color: #ffb703;              /* garis jadi oranye */
+            box-shadow: 0 0 0 3px rgba(255, 183, 3, 0.3); /* bayangan kuning */
+        }
+
+        /* METODE PEMBAYARAN – radio button custom */
+        .metode {
+            margin: 15px 0;                 /* jarak atas/bawah */
+        }
+        .metode label {
+            margin-right: 25px;             /* jarak antar pilihan */
+            cursor: pointer;                /* kursor tangan */
+            padding: 6px 12px;              /* ruang dalam */
+            border-radius: 50px;            /* bentuk oval */
+            background: #e2e8f0;            /* warna abu */
+            transition: 0.2s;               /* animasi hover */
+        }
+        /* sembunyikan radio button asli */
+        .metode input {
+            display: none;                  /* disembunyikan */
+        }
+        /* tampilan span yang akan diganti warnanya saat checked */
+        .metode input:checked + span {
+            background: #ffb703;            /* oranye */
+            color: #0b4f6c;                 /* teks biru */
+            padding: 6px 12px;              /* ruang dalam */
+            border-radius: 50px;            /* oval */
+            font-weight: bold;              /* tebal */
+        }
+        /* efek hover pada label metode */
+        .metode label:hover {
+            background: #ffb703;            /* oranye saat hover */
+        }
+        /* BOX INFORMASI URL (kuning) */
+        .info-url {
+            background: #fff3cd;                /* kuning muda */
+            border-left: 4px solid #ffc107;     /* garis samping oranye */
+            padding: 12px 15px;                 /* ruang dalam */
+            margin-top: 15px;                   /* jarak atas dari form */
+            border-radius: 20px;                /* sudut melengkung */
+            font-size: 0.8rem;                  /* ukuran teks kecil */
+            color: #856404;                     /* warna coklat tua */
+        }
+
+        /* FOOTER (bagian bawah halaman) */
+        footer {
+            text-align: center;                 /* teks tengah */
+            margin-top: 30px;                   /* jarak atas */
+            padding-top: 15px;                  /* ruang dalam atas */
+            border-top: 1px solid #cbd5e1;      /* garis pemisah */
+            font-size: 0.7rem;                  /* teks kecil */
+            color: #4a6a7a;                     /* warna abu tua */
+        }
+
+        /* RESPONSIF – untuk layar kecil (HP) */
+        @media (max-width: 760px) {
+            .container {
+                padding: 15px;      /* kurangi padding di HP */
+            }
+            h1 {
+                font-size: 1.5rem;  /* judul lebih kecil */
+            }
+            .about-us {
+                padding: 15px;      /* kurangi padding tentang kami di HP */
+            }
+            .about-us h2 {
+                font-size: 1.3rem;  /* judul lebih kecil */
+            }
+            .section-title {
+                font-size: 1.4rem;  /* ukuran judul daftar destinasi lebih kecil */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- KONTEN UTAMA : kotak putih tempat semua elemen -->
+<div class="container">
+    
+    <!-- JUDUL HALAMAN : menampilkan nama aplikasi dengan ikon -->
+    <h1>🎫 WisataKu - Tiket Liburan</h1>
+
+    <!-- ========== TENTANG KAMI : bagian profil dan keunggulan ========== -->
+    <div class="about-us">
+        <h2>🌟 Tentang Kami</h2>
+        <p><strong>WisataKu</strong> adalah platform pemesanan tiket liburan digital yang memudahkan Anda menjelajahi keindahan Indonesia. Kami hadir untuk memberikan pengalaman pemesanan yang cepat, aman, dan tanpa ribet.</p>
+        <p>Dengan dukungan teknologi web modern, Anda bisa memilih destinasi favorit, melakukan simulasi pemesanan, dan melihat detail harga secara transparan. Nikmati kemudahan berlibur bersama WisataKu.</p>
+        <!-- daftar keunggulan menggunakan flexbox -->
+        <div class="keunggulan">
+            <span>✅ Mudah & Cepat</span>     <!-- item keunggulan 1 -->
+            <span>✅ Tanpa Biaya Admin</span> <!-- item keunggulan 2 -->
+            <span>✅ 24 Jam Nonstop</span>    <!-- item keunggulan 3 -->
+        </div>
+    </div>
+    <!-- ============================================================= -->
+
+    <!-- ========== DAFTAR DESTINASI : judul sebelum grid ========== -->
+    <!-- heading untuk memberi tahu pengguna bahwa di bawah ini adalah daftar destinasi -->
+    <h2 class="section-title">📍 DAFTAR DESTINASI</h2>
+    <!-- ============================================================ -->
+
+    <!-- DAFTAR DESTINASI : grid kartu -->
+    <div class="destinasi-grid">
+        
+        <!-- KARTU DESTINASI 1 : Pantai Kuta -->
+        <div class="card" data-kategori="Pantai">
+            <div class="icon">🏖️</div>               <!-- ikon emoji -->
+            <div class="info">
+                <h3>Pantai Kuta</h3>                 <!-- nama destinasi -->
+                <div class="lokasi">📍 Desa Kuta, Kecamatan Kuta, Kabupaten Badung, Bali</div>    <!-- lokasi dengan ikon pin -->
+                <div class="harga">Rp250.000</div>   <!-- harga tiket -->
+            </div>
+        </div>
+        
+        <!-- KARTU DESTINASI 2 : Gunung Bromo -->
+        <div class="card" data-kategori="Gunung">
+            <div class="icon">&#128507</div>
+            <div class="info">
+                <h3>Gunung Bromo</h3>
+                <div class="lokasi">📍 Taman Nasional Bromo Tengger Semeru, Jawa Timur</div>
+                <div class="harga">Rp200.000</div>
+            </div>
+        </div>
+        
+        <!-- KARTU DESTINASI 3 : Candi Borobudur -->
+        <div class="card" data-kategori="Budaya">
+            <div class="icon">🏯</div>
+            <div class="info">
+                <h3>Candi Borobudur</h3>
+                <div class="lokasi">📍 Desa Borobudur, Kecamatan Borobudur, Kabupaten Magelang, Jawa Tengah</div>
+                <div class="harga">Rp120.000</div>
+            </div>
+        </div>
+        
+        <!-- KARTU DESTINASI 4 : Raja Ampat -->
+        <div class="card" data-kategori="Pantai">
+            <div class="icon">🐠</div>
+            <div class="info">
+                <h3>Raja Ampat</h3>
+                <div class="lokasi">📍 Provinsi Papua Barat Daya</div>
+                <div class="harga">Rp550.000</div>
+            </div>
+        </div>
+        
+        <!-- KARTU DESTINASI 5 : Kawah Ijen -->
+        <div class="card" data-kategori="Gunung">
+            <div class="icon">🌌</div>
+            <div class="info">
+                <h3>Kawah Ijen</h3>
+                <div class="lokasi">📍 Banyuwangi, Jawa Timur</div>
+                <div class="harga">Rp180.000</div>
+            </div>
+        </div>
+        
+        <!-- KARTU DESTINASI 6 : Danau Toba -->
+        <div class="card" data-kategori="Budaya">
+            <div class="icon">🏞️</div>
+            <div class="info">
+                <h3>Danau Toba</h3>
+                <div class="lokasi">📍 Toba, Sumatera Utara</div>
+                <div class="harga">Rp420.000</div>  
+            </div>
+        </div>
+    </div>
+
+    <!-- FORM PEMESANAN : tempat pengguna mengisi data tiket -->
+    <div class="form-pesan" id="form">
+        <h2>📝 Form Pemesanan Tiket</h2>
+        
+        <!-- Form dengan method GET (data akan muncul di URL setelah submit) -->
+        <form action="" method="GET">
+            
+            <!-- BARIS 1 FORM : nama dan email -->
+            <div class="row-form">
+                <input type="text" name="nama" placeholder="Nama lengkap" required>   <!-- input teks, nama field = "nama" -->
+                <input type="email" name="email" placeholder="Email aktif" required> <!-- input email, nama field = "email" -->
+            </div>
+            
+            <!-- BARIS 2 FORM : pilih destinasi dan jumlah tiket -->
+            <div class="row-form">
+                <select name="destinasi" required>   <!-- dropdown, nama field = "destinasi" -->
+                    <option value="">-- Pilih Destinasi --</option>
+                    <option value="Pantai Kuta">Pantai Kuta - Rp250.000</option>
+                    <option value="Gunung Bromo">Gunung Bromo - Rp200.000</option>
+                    <option value="Candi Borobudur">Candi Borobudur - Rp120.000</option>
+                    <option value="Raja Ampat">Raja Ampat - Rp550.000</option>
+                    <option value="Kawah Ijen">Kawah Ijen - Rp180.000</option>
+                    <option value="Danau Toba">Danau Toba - Rp420.000</option>
+                </select>
+                <input type="number" name="jumlah" value="1" min="1" required>   <!-- angka, nama field = "jumlah", minimal 1 -->
+            </div>
+            
+            <!-- BARIS 3 FORM : catatan khusus (opsional) -->
+            <div class="row-form">
+                <textarea name="catatan" rows="2" placeholder="Catatan khusus (opsional)"></textarea> <!-- teks area, nama field = "catatan" -->
+            </div>
+            
+            <!-- METODE PEMBAYARAN : radio button dengan pseudo-class :checked CSS -->
+            <div class="metode">
+                <strong>Metode Pembayaran:</strong><br><br>
+                <!-- radio button 1: Transfer Bank (checked default) -->
+                <label><input type="radio" name="payment" value="Transfer Bank" checked> <span>🏦 Transfer Bank</span></label>
+                <!-- radio button 2: QRIS -->
+                <label><input type="radio" name="payment" value="QRIS"> <span>📱 QRIS</span></label>
+                <!-- radio button 3: Bayar di Tempat (COD) -->
+                <label><input type="radio" name="payment" value="COD"> <span>🚪 Bayar di Tempat</span></label>
+            </div>
+            
+            <!-- TOMBOL SUBMIT : mengirimkan data ke URL (method GET) -->
+            <div class="row-form">
+                <button type="submit" class="btn-submit">✉️ Kirim</button>
+            </div>
+        </form>
+
+        <!-- KOTAK INFORMASI URL : menjelaskan bahwa data akan muncul di address bar -->
+        <div class="info-url">
+            🔗 <strong>Data pemesanan muncul di URL:</strong> Setelah menekan tombol "Kirim", 
+            perhatikan address bar browser. Semua data yang diisi akan terlihat di URL.
+        </div>
+    </div>
+
+    <!-- FOOTER : bagian bawah halaman, hak cipta dan slogan -->
+    <footer>
+        © 2025 WisataKu - Pemesanan Tiket Liburan | Mudah dan Aman
+    </footer>
+</div>
+<!-- PENUTUP KONTEN UTAMA -->
+
+</body>
+</html>
